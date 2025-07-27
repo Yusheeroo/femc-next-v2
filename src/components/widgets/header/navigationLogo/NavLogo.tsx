@@ -7,7 +7,7 @@ import Image from 'next/image';
 export const NavLogo = () => {
   return (
     <a href="/" className={s.logo}>
-      <Image src={'/images/femc_logo.png'} width={164} height={60} alt='main logo' />
+      <Image src={'/images/femc_logo.png'} width={144} height={52} alt='main logo' />
     </a>
   );
 }; 

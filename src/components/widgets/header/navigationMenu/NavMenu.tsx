@@ -1,20 +1,19 @@
-import { Button } from '@/components/shared/button/Button';
 import s from './NavMenu.module.scss';
+import { CustomLink } from '@/components/shared/customLink/CustomLink';
+import Link from 'next/link';
 
 
 /** Компонент меню навигации */
 export const NavMenu = () => {
   return (
     <div className={s.menu}>
-      <Button type={'primary'}>
-        Сервера
-      </Button>
-
-      <div className={s.menuLinks}>
-        <a href="/plans" className={s.menuLink}>Планы</a>
-        <a href="/chat" className={s.menuLink}>Чат</a>
-        <a href="/team" className={s.menuLink}>Команда</a>
-        <a href="/fame" className={s.menuLink}>Аллея славы</a>
+      <div className={s.linksButton}>
+        <Link href="/servers" className={`${s.linkButton} ${s.linkButtonLeft}`}>Сервера</Link>
+        <Link href="/fame" className={s.linkButton}>Новости</Link>
+        <Link href="/team" className={s.linkButton}>Команда</Link>
+        <Link href="/plans" className={s.linkButton}>Планы</Link>
+        <Link href="/fame" className={s.linkButton}>Аллея славы</Link>
+        <Link href="/chat" className={`${s.linkButton} ${s.linkButtonRight}`}>Чат</Link>
       </div>
     </div>
   );

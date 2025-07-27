@@ -1,48 +1,56 @@
 .menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
-}
+  gap: 3rem;
 
-.catalogIcon {
-  display: flex;
-  align-items: center;
-}
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
 
-.menuLinks {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  font-size: 18px;
-  font-weight: 600;
+  .linksButton {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
 
-  a {
+  .link {
     line-height: 1;
-  }
-}
+    font-size: 16px;
+    font-weight: 600;
+    transition: color ease .2s;
 
-.promotionDot {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  background-color: #FF6B35;
-  border-radius: 50%;
-}
-
-// Адаптивность для мобильных устройств
-@media (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    &:hover {
+      color: #a94621;
+    }
   }
 
-  .menuLinks {
-    flex-wrap: wrap;
+  .linkButton {
+    line-height: 1;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 1rem;
+    font-size: 16px;
+    font-weight: 600;
+    background: #a94621;
+    padding: 18px 24px;
+    transition: all ease .2s;
+
+    &:hover {
+      background: #ffffff;
+      color: #000;
+    }
   }
-} 
+
+  .linkButtonLeft {
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+  }
+
+  .linkButtonRight {
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+}

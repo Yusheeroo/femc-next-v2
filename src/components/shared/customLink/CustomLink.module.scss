@@ -1,0 +1,49 @@
+@use 'src/app/styles/media.scss' as media;
+
+.link {
+  position: relative;
+  width: fit-content;
+  font-weight: 400;
+  font-size: 16px;
+
+  &.isSemibold {
+    font-weight: 600;
+    line-height: 130%;
+  }
+
+  @include media.laptop {
+    font-size: 15px;
+  }
+
+  @include media.hover {
+    transition: color 0.3s;
+
+    &:hover {
+      color: #888888;
+    }
+  }
+
+  &.isAlert {
+    &:before {
+      position: absolute;
+      top: -7px;
+      right: -8px;
+
+      border-radius: 50%;
+      background: #ff6709;
+      width: 5.6px;
+      height: 5.6px;
+      content: '';
+
+      @include media.laptop {
+        top: -6px;
+        right: -9px;
+      }
+
+      @include media.bigPhone {
+        top: -3px;
+        right: -11px;
+      }
+    }
+  }
+}
