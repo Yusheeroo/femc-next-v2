@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=/api
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.prod
+    environment:
+      - NODE_ENV=production
+      - DIRECTUS_URL=http://directus:8055
+    restart: unless-stopped
+    expose:
+      - "3001"
+
+  directus:
+    build: ./directus
+    environment:
+      - NODE_ENV=production
+      - KEY=${DIRECTUS_PROD_KEY}
+      - ADMIN_EMAIL=${DIRECTUS_PROD_EMAIL}
+      - ADMIN_PASSWORD=${DIRECTUS_PROD_PASSWORD}
+      - DB_CLIENT=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_DATABASE=directus_prod
+    volumes:
+      - directus-uploads:/directus/uploads
+    restart: unless-stopped
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=${DB_PROD_USER}
+      - POSTGRES_PASSWORD=${DB_PROD_PASSWORD}
+      - POSTGRES_DB=directus_prod
+    volumes:
+      - pgdata-prod:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - client
+      - api
+
+volumes:
+  directus-uploads:
+  pgdata-prod:
