@@ -1,0 +1,83 @@
+@use 'src/app/styles/media.scss' as media;
+
+$primary-purple-gradient: linear-gradient(90deg, #560058 0%, #a1008e 100%);
+$primary-purple-gradient-hover: linear-gradient(90deg, #520066 0%, #8c00af 100%);
+
+.wrapper {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 40px;
+  padding: 15px 27px 11px 28px;
+  overflow: hidden;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 160%;
+
+  &.middle {
+    @include media.laptop {
+      font-size: 15px;
+    }
+
+    @include media.tablet {
+      font-size: 14px;
+    }
+  }
+
+  &.default {
+    background: #2f2f2f;
+    color: #fff;
+
+    @include media.hover {
+      transition: background 0.3s;
+
+      &:hover {
+        background: #1b1b1b;
+      }
+    }
+  }
+
+  &.primary {
+    background: $primary-purple-gradient;
+    color: #fff;
+
+    @include media.hover {
+      &:before {
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.3s;
+        inset: 0;
+        background: $primary-purple-gradient-hover;
+        content: '';
+      }
+
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  z-index: 2;
+
+  .middle & {
+    @include media.laptop {
+      gap: 10px;
+    }
+
+    @include media.tablet {
+      gap: 7px;
+    }
+  }
+}

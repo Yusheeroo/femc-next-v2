@@ -1,0 +1,46 @@
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid #444;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #B0B0B0;
+
+  &:hover {
+    border-color: #FF6B35;
+    color: #FF6B35;
+    background-color: rgba(255, 107, 53, 0.1);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    transition: all 0.2s ease;
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .actions {
+    gap: 0.5rem;
+  }
+
+  .actionButton {
+    width: 36px;
+    height: 36px;
+  }
+} 

@@ -1,0 +1,48 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.catalogIcon {
+  display: flex;
+  align-items: center;
+}
+
+.menuLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 18px;
+  font-weight: 600;
+
+  a {
+    line-height: 1;
+  }
+}
+
+.promotionDot {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: #FF6B35;
+  border-radius: 50%;
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .menuLinks {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+} 

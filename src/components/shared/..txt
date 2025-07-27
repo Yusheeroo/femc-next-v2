@@ -1,0 +1,16 @@
+🗂 shared/           # Общие ресурсы
+   ├── api/            # API клиенты
+   ├── lib/            # Утилиты
+   ├── ui/             # UI киты (button, input)
+   └── styles/         # Глобальные стили
+
+shared – Общие низкоуровневые элементы
+
+Что хранится:
+UI-кит (Button, Input, Card).
+Утилиты (formatDate, apiClient).
+Хуки (useDebounce, useLocalStorage).
+
+Пример:
+// shared/ui/Button.tsx
+export const Button = ({ children }) => <button className="btn">{children}</button>;
