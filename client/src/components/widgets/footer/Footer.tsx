@@ -10,6 +10,7 @@ export const Footer = () => {
       <Container>
         <footer className={s.footer}>
           <FooterTop />
+          <div className={s.mainContent}>Main Content</div>
           <FooterBottom />
         </footer>
       </Container>

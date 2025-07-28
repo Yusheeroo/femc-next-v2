@@ -1,8 +1,8 @@
-import s from './NavActions.module.scss';
+import s from './headerActions.module.scss';
 import { UserRound } from 'lucide-react';
 
 /** Компонент действий пользователя */
-export const NavActions = () => {
+export const HeaderActions = () => {
   return (
     <div className={s.actions}>
       <button className={s.button}>

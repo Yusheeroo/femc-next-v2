@@ -1,0 +1,23 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+
+  .links {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .link {
+    line-height: 1;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color ease .2s;
+
+    &:hover {
+      color: #a94621;
+    }
+  }
+}

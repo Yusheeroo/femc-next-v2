@@ -1,9 +1,11 @@
 @use 'src/app/styles/media.scss' as media;
 
 .wrapper {
+    position: fixed;
     width: 100%;
     height: 105px;
     background: #1d1d1d;
+    z-index: 10;
 
     .content {
         width: 100%;
@@ -17,3 +19,19 @@
         color: aliceblue;
     }
 }
+
+.navigation {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+  
+    .navigationWrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+  }

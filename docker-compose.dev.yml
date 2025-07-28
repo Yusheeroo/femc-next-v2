@@ -1,59 +1,51 @@
-version: '3.8'
-
 services:
-  client:
-    build:
-      context: ./client
-      dockerfile: Dockerfile.dev
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./client:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-      - NEXT_PUBLIC_API_URL=http://localhost:3001
-    depends_on:
-      - api
-
   api:
     build:
       context: ./api
       dockerfile: Dockerfile.dev
-    ports:
-      - "3001:3001"
-    volumes:
-      - ./api:/app
-      - /app/node_modules
     environment:
       - NODE_ENV=development
       - DIRECTUS_URL=http://directus:8055
-    depends_on:
-      - directus
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+    volumes:
+      - ./api:/app
+      - /app/node_modules
 
   directus:
     build: ./directus
-    ports:
-      - "8055:8055"
     environment:
       - NODE_ENV=development
-      - KEY=dev-secret-key
-      - ADMIN_EMAIL=admin@dev.com
-      - ADMIN_PASSWORD=devpassword
+      - KEY=${DIRECTUS_DEV_KEY:-your-dev-key}
+      - ADMIN_EMAIL=${DIRECTUS_DEV_EMAIL:-admin@example.com}
+      - ADMIN_PASSWORD=${DIRECTUS_DEV_PASSWORD:-admin123}
       - DB_CLIENT=postgres
       - DB_HOST=db
       - DB_PORT=5432
       - DB_DATABASE=directus_dev
+      - DB_USER=${DB_DEV_USER:-directus}
+      - DB_PASSWORD=${DB_DEV_PASSWORD:-directus}
+    ports:
+      - "8055:8055"
     volumes:
-      - ./directus/uploads:/directus/uploads
+      - directus-uploads-dev:/directus/uploads
+    restart: unless-stopped
     depends_on:
       - db
 
   db:
     image: postgres:13
     environment:
-      - POSTGRES_USER=directus
-      - POSTGRES_PASSWORD=directus
+      - POSTGRES_USER=${DB_DEV_USER:-directus}
+      - POSTGRES_PASSWORD=${DB_DEV_PASSWORD:-directus}
       - POSTGRES_DB=directus_dev
+    ports:
+      - "5432:5432"
     volumes:
-      - ./pgdata-dev:/var/lib/postgresql/data
+      - pgdata-dev:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  directus-uploads-dev:
+  pgdata-dev: 
