@@ -1,0 +1,17 @@
+@use 'src/app/styles/media.scss' as media;
+
+.footerMain {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 73px;
+    color: #fff;
+
+    .grid {
+        width: 600px;
+        display: grid;
+        grid-auto-flow: column;
+    }
+}

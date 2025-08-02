@@ -9,19 +9,10 @@ type ButtonProps = PropsWithChildren<{
   type?: 'primary' | 'default';
   size?: 'middle';
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  route?: string; // новый пропс для редиректа
 }>;
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { htmlType = 'button', type = 'default', size = 'middle', className, children, route, ...rest } = props;
-
-  if (route) {
-    return (
-      <Link href={route} className={clsx(s.wrapper, s[type], s[size], className)} {...rest}>
-        <span className={s.content}>{children}</span>
-      </Link>
-    );
-  }
+  const { htmlType = 'button', type = 'default', size = 'middle', className, children, ...rest } = props;
 
   return (
     <button className={clsx(s.wrapper, s[type], s[size], className)} type={htmlType} {...rest}>

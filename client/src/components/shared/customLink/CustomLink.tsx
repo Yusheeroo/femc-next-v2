@@ -4,11 +4,10 @@ import { FC, PropsWithChildren } from 'react';
 import clsx from 'clsx';
 
 type CustomLinkProps = {
-  isAlert?: boolean;
   className?: string;
-  isSemiBold?: boolean;
+  isSecondary?: boolean;
 } & PropsWithChildren<LinkProps>;
 
-export const CustomLink: FC<CustomLinkProps> = ({ isAlert, isSemiBold, className, ...rest }) => {
-  return <Link className={clsx(s.link, isSemiBold && s.isSemibold, isAlert && s.isAlert, className)} {...rest} />;
+export const CustomLink: FC<CustomLinkProps> = ({ isSecondary, className, ...rest }) => {
+  return <Link className={clsx(s.link, isSecondary && s.isSecondary, className)} {...rest} />;
 };

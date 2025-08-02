@@ -1,23 +1,48 @@
+$color: #000;
+
 .menu {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 28px;
 
   .links {
     height: 100%;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 21px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 
   .link {
-    line-height: 1;
-    font-size: 18px;
-    font-weight: 600;
+    color: $color;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    font-size: 20px;
+    font-weight: 800;
     transition: color ease .2s;
 
     &:hover {
       color: #a94621;
     }
+  }
+
+  .linkButton {
+    width: 145px;
+    height: 60px;
+    background-color: #181818;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1px;
   }
 }

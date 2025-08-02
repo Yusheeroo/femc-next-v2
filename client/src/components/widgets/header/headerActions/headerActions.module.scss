@@ -1,24 +1,42 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 50px;
+
+  .copy {
+    width: 192px;
+    height: 60px;
+    border: none;
+    background: #fff;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    transition: all ease 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      background: #000000;
+      color: #fff;
+    }
+  }
 
   .button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
-    background: none;
-    border: 1px solid #ffffff;
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: #fff;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.2s ease;
     color: #B0B0B0;
-  
-    &:hover {
-      background-color: #a94621;
-      border: 2px solid #252525;
-    }
   }
 }

@@ -1,6 +1,6 @@
 @use 'src/app/styles/media.scss' as media;
 
-$primary-purple-gradient: linear-gradient(90deg, #560058 0%, #a1008e 100%);
+$primary-green-gradient: linear-gradient(90deg, #005816 0%, #02a644 100%);
 $primary-purple-gradient-hover: linear-gradient(90deg, #520066 0%, #8c00af 100%);
 
 .wrapper {
@@ -41,7 +41,7 @@ $primary-purple-gradient-hover: linear-gradient(90deg, #520066 0%, #8c00af 100%)
   }
 
   &.primary {
-    background: $primary-purple-gradient;
+    background: $primary-green-gradient;
     color: #fff;
 
     @include media.hover {
